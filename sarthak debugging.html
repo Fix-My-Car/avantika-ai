@@ -534,8 +534,15 @@
   </div>
 
   <script>
-    // --- REPLACE THIS WITH YOUR GEMINI API KEY ---
-    const GEMINI_API_KEY = 'AIzaSyAFlATyaaFlhy7-O4xn4hM4pHyrRXYTcTw';
+   
+const response = await fetch('/api/chat', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    system_instruction: { parts: [{ text: systemPrompt }] },
+    contents: geminiContents
+  })
+});
 
     // Create floating diyas
     function createDiya() {
